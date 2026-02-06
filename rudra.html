@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine Special</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+
+  background-image: url('myimage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+.container {
+  background: rgba(255,255,255,0.9);
+  width: 85%;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 15px pink;
+}
+
+/* BIG BUTTONS */
+button {
+  padding: 16px 30px;
+  margin: 12px;
+  font-size: 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: gray;
+  color: white;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+/* BIG BOXES */
+.ideaBox, .memoryBox, .songBox {
+  background: #ffe6ea;
+  padding: 18px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 22px;
+}
+
+/* PHOTO GRID */
+.photoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.photoBox {
+  width: 260px;
+  height: 260px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 12px pink;
+}
+
+.photoBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FLOATING HEARTS */
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 28px;
+  animation: float 6s linear infinite;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* ENVELOPE DESIGN */
+.envelope-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.envelope {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  background: #ff6f91;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff4d6d;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transition: 0.6s;
+  transform-origin: top;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.letter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 300px;
+  height: 190px;
+  background: white;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: left;
+  box-shadow: 0px 0px 10px pink;
+
+  overflow-y: auto;
+
+  transform: translateY(0);
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.envelope.open .letter {
+  transform: translateY(-240px);
+  opacity: 1;
+}
+
+/* BIG TEXT */
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 26px; }
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<!-- SCREEN 1 -->
+<div id="screen1" class="container">
+
+  <h1>Will You Be My Valentine? 💖</h1>
+
+  <button class="yes" id="yesBtn" onclick="showScreen2()">YES</button>
+  <button class="no" id="noBtn" onmouseover="moveButton()">NO</button>
+
+  <p id="message" style="font-size:24px;"></p>
+
+
+  <!-- VIRTUAL DATE OPTIONS -->
+  <h2>💖 Our Virtual Date Options 💖</h2>
+
+  <div class="ideaBox">🎬 Movie Date – Watch a movie together</div>
+  <div class="ideaBox">🎮 Game Night – Play online games</div>
+  <div class="ideaBox">🍽 Dinner Together – Eat on video call</div>
+  <div class="ideaBox">🎧 Music Date – Listen to songs together</div>
+  <div class="ideaBox">🌍 Explore Together – Virtual travel</div>
+
+  <h3>Which one should be our first date? 💌</h3>
+
+
+  <!-- SECRET MESSAGE IN ENVELOPE FORM -->
+  <h2>🔒 A Secret Note For You 🔒</h2>
+
+  <div class="envelope-container">
+    <div class="envelope" id="envelope" onclick="openEnvelope()">
+      <div class="flap"></div>
+
+      <div class="letter">
+        <h3>My Love Note 💖</h3>
+
+        <p style="font-size:22px;">
+          Heyyyyyyyyyyyyyyyyyyyyyyyyyeeeeeeeee Tanu,<br><br>
+
+          Happy Valentine’s Day I love you sooooooooooooooooo much and the time I’ve spent with you has been great these past 16 months weve been together have been the most amazing time of my life and I really hope that we will always be together there for each other and truly each others time with you passes slowly where I’ve lived and loved every moment you’ve changed me and my life you’ve made me a better man and taught me about things that really matter you’ve been my greatest inspiration you’ve taught to trust people you’ve shown me that teenage love can be permanent and that there’s nothing above our loved ones for me you’re my only priority my everything my world happyyyyyyyyyyyyyyyy valentinessssss dayyyyyyyy💕💕💕❤️❤️❤️”  
+
+          <br><br>
+          Forever Yours 💌
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FAVORITE MEMORIES -->
+  <h2>💝 Our Favorite Memories 💝</h2>
+
+  <div class="memoryBox">🌟 <h2>First Conversation</h2><div><h4>Sitting on the first seat of the middle row grade 7 B talking about who can roast better mujhe kya pata tha tu date ke baad mera toast bnadegi?</h4></div></div>
+  <div class="memoryBox"><h2> Favorite Moment</h2><div><h4>Eating kitkat in Omaxe basement</h4></div></div>
+  <div class="memoryBox"><h2>💬 Late Night Chats</h2><div><h4>late night talks about our future together how we dream our house to be and how we will decorate our room with Harry Potter on one side and how you want to create a dark themed house every chat with you has been rejuvenating I just love you so mucccccchhhhhh 💕💕💕💕💕</h4></div></div>
+
+
+  <!-- PHOTO MEMORIES -->
+  <h2>📸 Our Picture Memories 📸</h2>
+
+  <div class="photoGrid">
+    <div class="photoBox"><img src="rudra2.jpg"></div>
+    <div class="photoBox"><img src="rudra3.jpg"></div>
+    <div class="photoBox"><img src="rudra4.jpg"></div>
+    <div class="photoBox"><img src="rudra5.jpg"></div>
+  </div>
+
+
+  <!-- SOUNDTRACK DASHBOARD -->
+  <h2>🎵 Our Soundtrack Dashboard 🎵</h2>
+<h2>🎵 Our Soundtrack Dashboard 🎵</h2>
+
+<div class="songBox">
+  <h3>Jhol</h3>
+
+  <audio controls>
+    <source src="Jhol.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</div>
+
+<div class="songBox">
+  <h3>Kabira</h3>
+
+  <audio controls>
+    <source src="kabira.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</div>
+<div class="songBox">
+  <h3>Ranjheya</h3>
+
+  <audio controls>
+    <source src="Ranjheya.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</div>
+
+</div>
+
+
+<!-- SCREEN 2 -->
+<div id="screen2" class="container hidden">
+
+  <h1>Yayyyyy! 💕🥰</h1>
+
+  <p style="font-size:28px;">
+    You just made my day!  
+    I promise to make this Valentine super special for you! 💘
+  </p>
+
+  <h2>🌹 Forever & Always 🌹</h2>
+
+  <h1>💖💖💖</h1>
+
+</div>
+
+
+<script>
+
+let size = 24;
+
+// NO button runs away AND YES gets bigger
+function moveButton() {
+  let x = Math.random() * (window.innerWidth - 120);
+  let y = Math.random() * (window.innerHeight - 120);
+
+  let btn = document.getElementById("noBtn");
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+
+  size = size + 6;
+  document.getElementById("yesBtn").style.fontSize = size + "px";
+}
+
+// YES clicked
+function showScreen2() {
+  document.getElementById("screen1").style.display = "none";
+  document.getElementById("screen2").classList.remove("hidden");
+}
+
+// Open envelope
+function openEnvelope() {
+  document.getElementById("envelope").classList.toggle("open");
+}
+
+// Floating Hearts on BOTH screens
+function createHeart() {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 25 + 20 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 350);
+
+</script>
+
+</body>
+</html>
